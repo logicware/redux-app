@@ -8,10 +8,17 @@ import store from './store';
 import App from './App';
 import './index.css';
 
+const todoChangeHandler = (val) => {
+  store.dispatch({ type: 'CURRENT_UPDATE', payload: val });
+};
+
 const render = () => {
   const state = store.getState();
   ReactDOM.render(
-    <App {...state} />,
+    <App todos={state.todos}
+         currentTodo={state.currentTodo}
+         changeCurrent={todoChangeHandler}
+    />,
     document.getElementById('root')
   );
 };
@@ -19,11 +26,6 @@ const render = () => {
 render();
 
 store.subscribe(render);
-
-setTimeout(()=> {
-  console.info('Dispatching Event');
-  store.dispatch({ type: 'TODO_ADD', payload: { id: 4, name: 'New Todo via Dispatch', isComplete: false } });
-}, 2000);
 
 
 registerServiceWorker();
