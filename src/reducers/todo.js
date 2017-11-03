@@ -11,6 +11,7 @@ export default (state = initState, action) => {
 
   switch (action.type) {
     case 'TODO_ADD':
+      console.debug("Adding Todo:", action.payload.name);
       return {...state, todos: state.todos.concat(action.payload)};
     default:
       return state;
