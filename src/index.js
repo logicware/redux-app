@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {bindActionCreators} from 'redux';
+import {Provider} from 'react-redux';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -12,20 +13,13 @@ import './index.css';
 
 const actions = bindActionCreators({updateCurrentAction}, store.dispatch);
 
-const render = () => {
-  const state = store.getState();
-  ReactDOM.render(
-    <App todos={state.todos}
-         currentTodo={state.currentTodo}
-         changeCurrent={actions.updateCurrentAction}
-    />,
-    document.getElementById('root')
-  );
-};
+ReactDOM.render(
+  <Provider store={store}>
+    <App changeCurrent={actions.updateCurrentAction}/>
+  </Provider>,
+  document.getElementById('root')
+);
 
-render();
-
-store.subscribe(render);
 
 
 registerServiceWorker();
