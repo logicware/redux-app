@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default (props) => {
-  const {currentTodo} = props;
+  const {currentTodo, changeCurrent} = props;
   const handleInputChange = (event) => {
     const val = event.target.value;
-    props.changeCurrent(val);
+    changeCurrent(val);
   };
 
   return (
