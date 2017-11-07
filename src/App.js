@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux'
-import {bindActionCreators} from 'redux';
 
 import logo from './logo.svg';
 import './App.css';
@@ -33,6 +32,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => state;
-const mapDispatchToProps = (dispatch) => bindActionCreators({updateCurrentAction}, dispatch);
+const mapDispatchToProps = {updateCurrentAction};
 const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 export default ConnectedApp;
