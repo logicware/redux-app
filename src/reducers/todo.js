@@ -1,4 +1,4 @@
-import {getTodos} from "../lib/todoServices";
+import {getTodos, createTodo} from "../lib/todoServices";
 
 const initState = {
   todos: [],
@@ -12,12 +12,21 @@ const TODOS_LOAD      = 'TODOS_LOAD';
 
 export const updateCurrentAction = (payload) => ({ type: CURRENT_UPDATE, payload: payload });
 export const loadTodosAction     = (payload) => ({ type: TODOS_LOAD, payload: payload });
+export const addTodoAction       = (payload) => ({ type: TODO_ADD, payload: payload });
 
 
 export const fetchTodos = () => {
   return (dispatch) => {
     getTodos().then((todos) => {
       dispatch(loadTodosAction(todos));
+    });
+  }
+};
+
+export const saveTodo = (name) => {
+  return (dispatch) => {
+    createTodo(name).then((todo) => {
+      dispatch(addTodoAction(todo));
     });
   }
 };
@@ -29,7 +38,7 @@ export default (state = initState, action) => {
       return { ...state, currentTodo: action.payload };
     case TODO_ADD:
       //console.debug("Adding Todo:", action.payload.name);
-      return {...state, todos: state.todos.concat(action.payload)};
+      return {...state, currentTodo: '', todos: state.todos.concat(action.payload)};
     case TODOS_LOAD:
       return {...state, todos: action.payload};
     default:
