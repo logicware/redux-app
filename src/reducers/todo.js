@@ -1,14 +1,15 @@
 import {getTodos, createTodo} from "../lib/todoServices";
 
+import {showMessageAction} from "./messages";
+
 const initState = {
   todos: [],
   currentTodo: ''
 };
 
-const TODO_ADD        = 'TODO_ADD';
-const CURRENT_UPDATE  = 'CURRENT_UPDATE';
-const TODOS_LOAD      = 'TODOS_LOAD';
-
+export const TODO_ADD   = 'TODO_ADD';
+export const TODOS_LOAD = 'TODOS_LOAD';
+const CURRENT_UPDATE    = 'CURRENT_UPDATE';
 
 export const updateCurrentAction = (payload) => ({ type: CURRENT_UPDATE, payload: payload });
 export const loadTodosAction     = (payload) => ({ type: TODOS_LOAD, payload: payload });
@@ -17,6 +18,7 @@ export const addTodoAction       = (payload) => ({ type: TODO_ADD, payload: payl
 
 export const fetchTodos = () => {
   return (dispatch) => {
+    dispatch(showMessageAction('Loading...'));
     getTodos().then((todos) => {
       dispatch(loadTodosAction(todos));
     });
@@ -25,6 +27,7 @@ export const fetchTodos = () => {
 
 export const saveTodo = (name) => {
   return (dispatch) => {
+    dispatch(showMessageAction('Saving...'));
     createTodo(name).then((todo) => {
       dispatch(addTodoAction(todo));
     });

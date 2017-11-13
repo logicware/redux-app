@@ -29,7 +29,7 @@ class TodoForm extends Component {
  }
 }
 
-const mapStateToProps = (state) => ({ currentTodo: state.currentTodo });
+const mapStateToProps = (state) => ({ currentTodo: state.todo.currentTodo });
 const mapDispatchToProps = {updateCurrentAction, saveTodo};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
