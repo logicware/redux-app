@@ -23,7 +23,17 @@
     {
       "id": 5,
       "name": "update records",
-      "isComplete": false
+      "isComplete": true
+    },
+    {
+      "name": "Delete Records",
+      "isComplete": true,
+      "id": 6
+    },
+    {
+      "name": "Add Router",
+      "isComplete": false,
+      "id": 7
     }
   ]
 }
