@@ -32,8 +32,13 @@
     },
     {
       "name": "Add Router",
-      "isComplete": false,
+      "isComplete": true,
       "id": 7
+    },
+    {
+      "name": "Filter todos",
+      "isComplete": false,
+      "id": 8
     }
   ]
 }
