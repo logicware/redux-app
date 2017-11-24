@@ -2,17 +2,15 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {updateCurrentAction, saveTodo} from "../reducers/todo";
+import TextBox from './TextBox';
 
 class TodoForm extends Component {
 
-  handleInputChange = (event) => {
-    const val = event.target.value;
-    this.props.updateCurrentAction(val);
-  };
-
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.saveTodo(this.props.currentTodo);
+    if (this.props.currentTodo) {
+      this.props.saveTodo(this.props.currentTodo);
+    }
   };
 
   render() {
@@ -20,9 +18,9 @@ class TodoForm extends Component {
 
    return (
      <form onSubmit={this.handleSubmit}>
-       <input type="text"
+       <TextBox
               value={currentTodo}
-              onChange={this.handleInputChange}
+              updateText={this.props.updateCurrentAction}
        />
      </form>
    );
