@@ -24,46 +24,6 @@
       "id": 5,
       "name": "update records",
       "isComplete": false
-    },
-    {
-      "name": "test",
-      "isComplete": false,
-      "id": 6
-    },
-    {
-      "name": "new Todo",
-      "isComplete": false,
-      "id": 7
-    },
-    {
-      "name": "sfdsf",
-      "isComplete": false,
-      "id": 8
-    },
-    {
-      "name": "test",
-      "isComplete": false,
-      "id": 9
-    },
-    {
-      "name": "test",
-      "isComplete": false,
-      "id": 10
-    },
-    {
-      "name": "Newest Todo",
-      "isComplete": false,
-      "id": 11
-    },
-    {
-      "name": "Test",
-      "isComplete": false,
-      "id": 12
-    },
-    {
-      "name": "test",
-      "isComplete": false,
-      "id": 13
     }
   ]
 }
